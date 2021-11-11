@@ -1,18 +1,30 @@
+/*
+* game.cpp
+* Author : Skalefou
+* Creation date: 08/11/2021 (D/M/Y)
+* Date of last update : 11/11/2021 (D/M/Y)
+* 
+* This file has all the methods of the "Game" class.
+*/
+
 #include "game.hpp"
 
+//Initializes the attributes of the Game class
 Game::Game() : backgroundColor(255, 222, 173, 255)
 {
 	window.create(sf::VideoMode(512, 512), "Firefighter");
 }
 
+//sleepTime() returns the amount of time it takes for the program to hang, which is subtracted by the execution time that the program takes.
 sf::Time Game::sleepTime()
 {
-    if (sf::microseconds(16'666) <= timeExecution.getElapsedTime())
+    if (sf::microseconds(SLEEP_TIME_MAX) <= timeExecution.getElapsedTime())
         return sf::microseconds(0);
     else
-        return (sf::microseconds(16'666) - timeExecution.getElapsedTime());
+        return (sf::microseconds(SLEEP_TIME_MAX) - timeExecution.getElapsedTime());
 }
 
+//The play function performs the entire process of the game
 void Game::play()
 {
 	while (window.isOpen())
