@@ -12,7 +12,7 @@
 //Initializes the attributes of the Game class
 Game::Game() : backgroundColor(255, 222, 173, 255)
 {
-	window.create(sf::VideoMode(512, 512), "Firefighter");
+	window.create(sf::VideoMode(512, 512), "Firefighter", sf::Style::Close);
 }
 
 //sleepTime() returns the amount of time it takes for the program to hang, which is subtracted by the execution time that the program takes.
