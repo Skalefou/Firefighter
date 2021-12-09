@@ -66,6 +66,22 @@ void Audio::setVolumeSound(const float v)
 		m_sound[i].setVolume(v);
 }
 
+float Audio::getVolumeSound() const
+{
+	return m_volumeSound;
+}
+
+float Audio::getVolumeMusic() const
+{
+	return m_volumeMusic;
+}
+
+void Audio::stopMusic()
+{
+	for (unsigned int i = 0; i < std::size(m_music); i++)
+		m_music[i]->stop();
+}
+
 //deleteMusicTheme() : Allows you to delete the music file from the main menu from memory.
 void Audio::deleteMusicTheme()
 {

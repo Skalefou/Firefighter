@@ -10,9 +10,22 @@
 #include "game.hpp"
 
 //Initializes the attributes of the Game class
-Game::Game() : backgroundColor(255, 222, 173, 255)
+Game::Game() : backgroundColor(255, 222, 173, 255), execution(true), gameState(MENU)
 {
 	window.create(sf::VideoMode(512, 512), "Firefighter", sf::Style::Close);
+    mainMenu = new MainMenu;
+}
+
+Game::~Game()
+{
+    deleteMainMenu();
+}
+
+void Game::deleteMainMenu()
+{
+    delete mainMenu;
+    mainMenu = 0;
+    audio.deleteMusicTheme();
 }
 
 //sleepTime() returns the amount of time it takes for the program to hang, which is subtracted by the execution time that the program takes.
@@ -27,7 +40,7 @@ sf::Time Game::sleepTime()
 //The play function performs the entire process of the game
 void Game::play()
 {
-	while (window.isOpen())
+	while (window.isOpen() && execution)
 	{
         sf::sleep(sleepTime());
         timeExecution.restart();
@@ -38,6 +51,10 @@ void Game::play()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        if (mainMenu != 0)
+            mainMenu->play(window, audio, execution, gameState);
+        if (mainMenu != 0 && gameState != MENU)
+            deleteMainMenu();
         window.display();
 	}
 }

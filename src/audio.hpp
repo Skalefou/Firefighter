@@ -21,6 +21,9 @@ public:
 	Audio();
 	void setVolumeMusic(const float v);
 	void setVolumeSound(const float v);
+	float getVolumeSound() const;
+	float getVolumeMusic() const;
+	void stopMusic();
 	void deleteMusicTheme();
 	~Audio();
 private:
