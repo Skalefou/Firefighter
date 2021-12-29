@@ -14,6 +14,10 @@
 #include <SFML/Audio.hpp>
 #include <vector>
 #include <string>
+#include <memory>
+
+enum {SELECTION_SOUND, DEAD_SOUND};
+enum {MAIN_THEME_MUSIC, GAME_MUSIC, GAME_OVER_MUSIC};
 
 class Audio
 {
@@ -23,6 +27,7 @@ public:
 	void setVolumeSound(const float v);
 	float getVolumeSound() const;
 	float getVolumeMusic() const;
+	void playSound(const unsigned int soundExecute);
 	void stopMusic();
 	void deleteMusicTheme();
 	~Audio();
@@ -31,7 +36,8 @@ private:
 	float m_volumeMusic, m_volumeSound;
 	std::vector <sf::SoundBuffer> m_buffer;
 	std::vector <bool> accessMusic, accessSound;
-	std::vector <sf::Sound> m_sound;
+	//std::vector <sf::Sound> m_sound, m_copySound;
+	std::vector <std::shared_ptr<sf::Sound>> m_sound;
 	std::vector <sf::Music*> m_music;
 	std::vector <std::string> m_nameFileMusic, m_nameFileSound;
 
