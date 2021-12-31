@@ -2,7 +2,7 @@
 * audio.hpp
 * Author : Skalefou
 * Creation date: 13/11/2021 (D/M/Y)
-* Date of last update : 13/11/2021 (D/M/Y)
+* Date of last update : 31/12/2021 (D/M/Y)
 *
 * The file describes the "Audio" class
 */
@@ -16,8 +16,8 @@
 #include <string>
 #include <memory>
 
-enum {SELECTION_SOUND, DEAD_SOUND};
-enum {MAIN_THEME_MUSIC, GAME_MUSIC, GAME_OVER_MUSIC};
+enum { SELECTION_SOUND, DEAD_SOUND };
+enum { MAIN_THEME_MUSIC, GAME_MUSIC, GAME_OVER_MUSIC };
 
 class Audio
 {
@@ -29,6 +29,7 @@ public:
 	float getVolumeMusic() const;
 	void playSound(const unsigned int soundExecute);
 	void stopMusic();
+	void stopSound();
 	void deleteMusicTheme();
 	~Audio();
 private:
@@ -36,7 +37,6 @@ private:
 	float m_volumeMusic, m_volumeSound;
 	std::vector <sf::SoundBuffer> m_buffer;
 	std::vector <bool> accessMusic, accessSound;
-	//std::vector <sf::Sound> m_sound, m_copySound;
 	std::vector <std::shared_ptr<sf::Sound>> m_sound;
 	std::vector <sf::Music*> m_music;
 	std::vector <std::string> m_nameFileMusic, m_nameFileSound;

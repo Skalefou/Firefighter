@@ -2,7 +2,7 @@
 * game.hpp
 * Author : Skalefou
 * Creation date: 08/11/2021 (D/M/Y)
-* Date of last update : 13/11/2021 (D/M/Y)
+* Date of last update : 31/12/2021 (D/M/Y)
 *
 * This file describes the "Game" class
 */
@@ -40,7 +40,10 @@ private:
 	* window : Program window. Useful throughout the program.
 	* timeExecution : Duration of tick execution, particularly useful in the sleepTime() method.
 	* backgroundColor : Sets the background color of the program window, useful during program display.
+	* execution : bool defining whether the execution of the program is still in progress or whether it must stop.
+	* gameState : Defines the state of the game (Menu, play or the state of Game over).
 	* audio : Object that contains everything related to audio.
+	* *mainMenu : Object that contains everything related to main menu of the game.
 	*/
 };
 

@@ -1,6 +1,16 @@
+/*
+* mainMenu.cpp
+* Author : Skalefou
+* Creation date: 09/12/2021 (D/M/Y)
+* Date of last update : 31/12/2021 (D/M/Y)
+*
+* This file has all the methods of the "mainMenu" class.
+*/
+
 #include "mainMenu.hpp"
 #include <string>
 
+//Initializes the attributes of the mainMenu class.
 MainMenu::MainMenu() : m_selector(1), m_colorAnimateText(false), m_releaseInput(false), m_lastKey(UP)
 {
 	if (m_font.loadFromFile("data/Pixellari.ttf"))
@@ -32,12 +42,14 @@ MainMenu::MainMenu() : m_selector(1), m_colorAnimateText(false), m_releaseInput(
 	}
 }
 
+//Displays the elements of the class on the screen.
 void MainMenu::draw(sf::RenderWindow& window)
 {
 	for (unsigned int i = 0; i < NUMBER_TEXT_MAINMENU; i++)
 		window.draw(m_text[i]);
 }
 
+//Determine which texts are to be animated.
 void MainMenu::selectorTextAnimate()
 {
 	m_selectorAnimate.clear();
@@ -55,6 +67,7 @@ void MainMenu::selectorTextAnimate()
 		m_selectorAnimate.push_back(8);
 }
 
+//Changes the texts of the volume options according to the volume of music and sounds.
 void MainMenu::textChangeAudio(const unsigned int v)
 {
 	std::string t;
@@ -69,24 +82,33 @@ void MainMenu::textChangeAudio(const unsigned int v)
 		m_text[6].setString(t);
 }
 
+//Resets some of the choices of the selectorChoice function.
+void MainMenu::resetChoice(unsigned int lastkey)
+{
+	if(lastkey == UP || lastkey == DOWN)
+		selectorTextAnimate();
+	m_coolDownInput.restart();
+	m_releaseInput = false;
+	m_lastKey = lastkey;
+}
+
+//Allows selection of different options.
 void MainMenu::selectorChoice(Audio& audio, bool& execution, unsigned int& gameState)
 {
+	//Changes the selection depending on the keyboard key the user enters
 	if ((m_coolDownInput.getElapsedTime() > sf::milliseconds(375) || m_releaseInput == true || m_lastKey != UP) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) && m_selector > 1)
 	{
 		m_selector--;
-		selectorTextAnimate();
-		m_coolDownInput.restart();
-		m_releaseInput = false;
-		m_lastKey = UP;
+		resetChoice(UP);
+		audio.playSound(SELECTION_SOUND);
 	}
 	else if ((m_coolDownInput.getElapsedTime() > sf::milliseconds(375) || m_releaseInput == true || m_lastKey != DOWN) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) && m_selector < 4)
 	{
 		m_selector++;
-		selectorTextAnimate();
-		m_coolDownInput.restart();
-		m_releaseInput = false;
-		m_lastKey = DOWN;
+		resetChoice(DOWN);
+		audio.playSound(SELECTION_SOUND);
 	}
+	//Change the volume
 	else if ((m_coolDownInput.getElapsedTime() > sf::milliseconds(375) || m_releaseInput == true || m_lastKey != LEFT) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) && (m_selector == 2 || m_selector == 3))
 	{
 		unsigned int a = 0;
@@ -103,9 +125,8 @@ void MainMenu::selectorChoice(Audio& audio, bool& execution, unsigned int& gameS
 			textChangeAudio(a);
 		}
 		textChangeAudio(a);
-		m_coolDownInput.restart();
-		m_releaseInput = false;
-		m_lastKey = LEFT;
+		resetChoice(LEFT);
+		audio.playSound(SELECTION_SOUND);
 	}
 	else if ((m_coolDownInput.getElapsedTime() > sf::milliseconds(375) || m_releaseInput == true || m_lastKey != RIGHT) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) && (m_selector == 2 || m_selector == 3))
 	{
@@ -122,21 +143,23 @@ void MainMenu::selectorChoice(Audio& audio, bool& execution, unsigned int& gameS
 			a = (unsigned int)(audio.getVolumeSound() / 10);
 			textChangeAudio(a);
 		}
-		m_coolDownInput.restart();
-		m_releaseInput = false;
-		m_lastKey = RIGHT;
+		resetChoice(RIGHT);
+		audio.playSound(SELECTION_SOUND);
 	}
+	//Validate the selection
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter))
 	{
 		if (m_selector == 1)
 			gameState = 1;
 		else if (m_selector == 4)
 			execution = false;
+		audio.playSound(SELECTION_SOUND);
 	}
 	else if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
 		m_releaseInput = true;
 }
 
+//Animates animated texts
 void MainMenu::animateText()
 {
 	if (m_clockAnimateText.getElapsedTime() > sf::milliseconds(375))
@@ -153,9 +176,11 @@ void MainMenu::animateText()
 	}
 }
 
+//Loop managing all aspects of the class.
 void MainMenu::play(sf::RenderWindow& window, Audio& audio, bool& execution, unsigned int& gameState)
 {
 	selectorChoice(audio, execution, gameState);
 	animateText();
 	draw(window);
+	
 }

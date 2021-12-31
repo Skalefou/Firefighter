@@ -10,7 +10,7 @@
 #include "game.hpp"
 
 //Beginning of the program, creation of the "Game" object and use.
-int main(void)
+int main()
 {
     Game game;
     game.play();

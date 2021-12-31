@@ -2,7 +2,7 @@
 * game.cpp
 * Author : Skalefou
 * Creation date: 08/11/2021 (D/M/Y)
-* Date of last update : 11/11/2021 (D/M/Y)
+* Date of last update : 31/12/2021 (D/M/Y)
 * 
 * This file has all the methods of the "Game" class.
 */
@@ -16,11 +16,13 @@ Game::Game() : backgroundColor(255, 222, 173, 255), execution(true), gameState(M
     mainMenu = new MainMenu;
 }
 
+//Destructors of the "Game" item
 Game::~Game()
 {
     deleteMainMenu();
 }
 
+//Free the pointers of the "Game" object
 void Game::deleteMainMenu()
 {
     delete mainMenu;
