@@ -2,7 +2,7 @@
 * game.cpp
 * Author : Skalefou
 * Creation date: 08/11/2021 (D/M/Y)
-* Date of last update : 31/12/2021 (D/M/Y)
+* Date of last update : 02/01/2022 (D/M/Y)
 * 
 * This file has all the methods of the "Game" class.
 */
@@ -39,8 +39,8 @@ sf::Time Game::sleepTime()
         return (sf::microseconds(SLEEP_TIME_MAX) - timeExecution.getElapsedTime());
 }
 
-//The play function performs the entire process of the game
-void Game::play()
+//The program function performs the entire process of the game
+void Game::program()
 {
 	while (window.isOpen() && execution)
 	{
@@ -54,9 +54,13 @@ void Game::play()
                 window.close();
         }
         if (mainMenu != 0)
+        {
             mainMenu->play(window, audio, execution, gameState);
-        if (mainMenu != 0 && gameState != MENU)
-            deleteMainMenu();
+            if (gameState != MENU)
+                deleteMainMenu();
+        }
+        if (gameState == PLAY)
+            play.run();
         window.display();
 	}
 }

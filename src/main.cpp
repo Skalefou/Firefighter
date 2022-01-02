@@ -13,6 +13,6 @@
 int main()
 {
     Game game;
-    game.play();
+    game.program();
     return 0;
 }

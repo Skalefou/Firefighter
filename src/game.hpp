@@ -14,6 +14,7 @@
 #include <SFML/Graphics.hpp>
 #include "audio.hpp"
 #include "mainMenu.hpp"
+#include "play.hpp"
 
 //Defines the maximum time it takes for the program to freeze
 #define SLEEP_TIME_MAX 16'666
@@ -27,7 +28,7 @@ public:
 	~Game();
 	void deleteMainMenu();
 	sf::Time sleepTime();
-	void play();
+	void program();
 private:
 	sf::RenderWindow window;
 	sf::Clock timeExecution;
@@ -36,6 +37,7 @@ private:
 	unsigned int gameState;
 	Audio audio;
 	MainMenu *mainMenu;
+	Play play;
 	/*
 	* window : Program window. Useful throughout the program.
 	* timeExecution : Duration of tick execution, particularly useful in the sleepTime() method.
