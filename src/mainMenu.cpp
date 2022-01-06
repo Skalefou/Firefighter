@@ -11,9 +11,9 @@
 #include <string>
 
 //Initializes the attributes of the mainMenu class.
-MainMenu::MainMenu() : m_selector(1), m_colorAnimateText(false), m_releaseInput(false), m_lastKey(UP)
+MainMenu::MainMenu(sf::Font& font, const bool fontWork) : m_selector(1), m_colorAnimateText(false), m_releaseInput(false), m_lastKey(UP)
 {
-	if (m_font.loadFromFile("data/Pixellari.ttf"))
+	if (fontWork)
 	{
 		const std::array <std::string, NUMBER_TEXT_MAINMENU> textString{ "Firefighter", "Play", "<", "Music : 10", ">", "<", "Sound : 10", ">", "Quit" };
 		const std::array <float, 2 * NUMBER_TEXT_MAINMENU> posText
@@ -30,7 +30,7 @@ MainMenu::MainMenu() : m_selector(1), m_colorAnimateText(false), m_releaseInput(
 		};
 		for (unsigned int i = 0; i < NUMBER_TEXT_MAINMENU; i++)
 		{
-			m_text[i].setFont(m_font);
+			m_text[i].setFont(font);
 			m_text[i].setString(textString[i]);
 			if (i != 0)
 				m_text[i].setCharacterSize(36);
@@ -96,15 +96,21 @@ void MainMenu::resetChoice(unsigned int lastkey)
 void MainMenu::selectorChoice(Audio& audio, bool& execution, unsigned int& gameState)
 {
 	//Changes the selection depending on the keyboard key the user enters
-	if ((m_coolDownInput.getElapsedTime() > sf::milliseconds(375) || m_releaseInput == true || m_lastKey != UP) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) && m_selector > 1)
+	if ((m_coolDownInput.getElapsedTime() > sf::milliseconds(375) || m_releaseInput == true || m_lastKey != UP) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 	{
-		m_selector--;
+		if (m_selector > 1)
+			m_selector--;
+		else
+			m_selector = 4;
 		resetChoice(UP);
 		audio.playSound(SELECTION_SOUND);
 	}
-	else if ((m_coolDownInput.getElapsedTime() > sf::milliseconds(375) || m_releaseInput == true || m_lastKey != DOWN) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) && m_selector < 4)
+	else if ((m_coolDownInput.getElapsedTime() > sf::milliseconds(375) || m_releaseInput == true || m_lastKey != DOWN) && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
 	{
-		m_selector++;
+		if (m_selector < 4)
+			m_selector++;
+		else
+			m_selector = 1;
 		resetChoice(DOWN);
 		audio.playSound(SELECTION_SOUND);
 	}

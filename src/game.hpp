@@ -12,11 +12,12 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <memory>
 #include "audio.hpp"
 #include "mainMenu.hpp"
 #include "play.hpp"
 
-//Defines the maximum time it takes for the program to freeze
+//Define the maximum time it takes for the program to freeze
 #define SLEEP_TIME_MAX 16'666
 
 enum {MENU, PLAY, GAME_OVER};
@@ -33,11 +34,12 @@ private:
 	sf::RenderWindow window;
 	sf::Clock timeExecution;
 	sf::Color backgroundColor;
-	bool execution;
+	bool execution, fontWork = false;
 	unsigned int gameState;
 	Audio audio;
-	MainMenu *mainMenu;
-	Play play;
+	std::unique_ptr<MainMenu> mainMenu;
+	std::unique_ptr<Play> play;
+	sf::Font font;
 	/*
 	* window : Program window. Useful throughout the program.
 	* timeExecution : Duration of tick execution, particularly useful in the sleepTime() method.

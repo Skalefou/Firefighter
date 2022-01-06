@@ -16,9 +16,11 @@
 class Play
 {
 public:
-	void run();
+	Play(sf::Font& font, bool &fontWork);
+	void run(sf::RenderWindow& window, sf::Color &backgroundColor);
 private:
 	Option option;
+	bool m_releaseEscape;
 };
 
 #endif

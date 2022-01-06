@@ -21,7 +21,7 @@ enum { UP, DOWN, LEFT, RIGHT };
 class MainMenu
 {
 public:
-	MainMenu();
+	MainMenu(sf::Font &font, const bool fontWork);
 	void draw(sf::RenderWindow& window);
 	void selectorTextAnimate();
 	void textChangeAudio(const unsigned int v);
@@ -30,7 +30,6 @@ public:
 	void animateText();
 	void play(sf::RenderWindow& window, Audio &audio, bool &execution, unsigned int &gameState);
 private:
-	sf::Font m_font;
 	std::array <sf::Text, NUMBER_TEXT_MAINMENU> m_text;
 	unsigned int m_selector, m_lastKey;
 	sf::Clock m_clockAnimateText, m_coolDownInput;

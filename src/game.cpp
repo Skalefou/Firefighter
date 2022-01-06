@@ -8,12 +8,13 @@
 */
 
 #include "game.hpp"
-
+#include <iostream>
 //Initializes the attributes of the Game class
 Game::Game() : backgroundColor(255, 222, 173, 255), execution(true), gameState(MENU)
 {
+    play = std::make_unique<Play>(font, fontWork);
 	window.create(sf::VideoMode(512, 512), "Firefighter", sf::Style::Close);
-    mainMenu = new MainMenu;
+    mainMenu = std::make_unique<MainMenu>(font, fontWork);
 }
 
 //Destructors of the "Game" item
@@ -25,8 +26,7 @@ Game::~Game()
 //Free the pointers of the "Game" object
 void Game::deleteMainMenu()
 {
-    delete mainMenu;
-    mainMenu = 0;
+    mainMenu.reset(0);
     audio.deleteMusicTheme();
 }
 
@@ -60,7 +60,7 @@ void Game::program()
                 deleteMainMenu();
         }
         if (gameState == PLAY)
-            play.run();
+            play->run(window, backgroundColor);
         window.display();
 	}
 }
