@@ -8,7 +8,7 @@
 */
 
 #include "game.hpp"
-#include <iostream>
+
 //Initializes the attributes of the Game class
 Game::Game() : backgroundColor(255, 222, 173, 255), execution(true), gameState(MENU)
 {
