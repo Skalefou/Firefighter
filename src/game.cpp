@@ -2,7 +2,7 @@
 * game.cpp
 * Author : Skalefou
 * Creation date: 08/11/2021 (D/M/Y)
-* Date of last update : 02/01/2022 (D/M/Y)
+* Date of last update : 07/01/2022 (D/M/Y)
 * 
 * This file has all the methods of the "Game" class.
 */
@@ -12,9 +12,9 @@
 //Initializes the attributes of the Game class
 Game::Game() : backgroundColor(255, 222, 173, 255), execution(true), gameState(MENU)
 {
-    play = std::make_unique<Play>(font, fontWork);
-	window.create(sf::VideoMode(512, 512), "Firefighter", sf::Style::Close);
+    play = std::make_unique<Play>(font, fontWork, audio);
     mainMenu = std::make_unique<MainMenu>(font, fontWork);
+    window.create(sf::VideoMode(512, 512), "Firefighter", sf::Style::Close);
 }
 
 //Destructors of the "Game" item
@@ -27,7 +27,6 @@ Game::~Game()
 void Game::deleteMainMenu()
 {
     mainMenu.reset(0);
-    audio.deleteMusicTheme();
 }
 
 //sleepTime() returns the amount of time it takes for the program to hang, which is subtracted by the execution time that the program takes.
@@ -60,7 +59,7 @@ void Game::program()
                 deleteMainMenu();
         }
         if (gameState == PLAY)
-            play->run(window, backgroundColor);
+            play->run(window, backgroundColor, audio, execution);
         window.display();
 	}
 }

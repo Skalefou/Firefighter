@@ -2,7 +2,7 @@
 * mainMenu.cpp
 * Author : Skalefou
 * Creation date: 09/12/2021 (D/M/Y)
-* Date of last update : 31/12/2021 (D/M/Y)
+* Date of last update : 07/01/2021 (D/M/Y)
 *
 * This file has all the methods of the "mainMenu" class.
 */
@@ -37,8 +37,8 @@ MainMenu::MainMenu(sf::Font& font, const bool fontWork) : m_selector(1), m_color
 			m_text[i].setPosition(sf::Vector2f(posText[2*i], posText[2*i+1]));
 		}
 		m_text[0].setCharacterSize(48);
-		m_text[1].setFillColor(sf::Color(255, 215, 0));
 		selectorTextAnimate();
+		m_text[1].setFillColor(sf::Color(255, 215, 0));
 	}
 }
 
@@ -70,7 +70,7 @@ void MainMenu::selectorTextAnimate()
 //Changes the texts of the volume options according to the volume of music and sounds.
 void MainMenu::textChangeAudio(const unsigned int v)
 {
-	std::string t;
+	std::string t {""};
 	if (m_selector == 2)
 		t += "Music : ";
 	else
@@ -83,7 +83,7 @@ void MainMenu::textChangeAudio(const unsigned int v)
 }
 
 //Resets some of the choices of the selectorChoice function.
-void MainMenu::resetChoice(unsigned int lastkey)
+void MainMenu::resetChoice(const unsigned int lastkey)
 {
 	if(lastkey == UP || lastkey == DOWN)
 		selectorTextAnimate();

@@ -1,12 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include "play.hpp"
 
-Play::Play(sf::Font& font, bool& fontWork) : m_releaseEscape(true), option(font, fontWork)
+Play::Play(sf::Font& font, bool& fontWork, Audio& audio) : m_releaseEscape(true), option(font, fontWork, audio)
 {
 
 }
 
-void Play::run(sf::RenderWindow& window, sf::Color& backgroundColor)
+void Play::run(sf::RenderWindow& window, sf::Color& backgroundColor, Audio &audio, bool &execution)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && option.canOpenOption() && m_releaseEscape)
 	{
@@ -17,6 +17,6 @@ void Play::run(sf::RenderWindow& window, sf::Color& backgroundColor)
 		m_releaseEscape = true;
 	
 	if (option.getOption())
-		option.run(window);
+		option.run(window, audio, execution, backgroundColor);
 
 }

@@ -25,7 +25,7 @@ public:
 	void draw(sf::RenderWindow& window);
 	void selectorTextAnimate();
 	void textChangeAudio(const unsigned int v);
-	void resetChoice(unsigned int lastkey);
+	void resetChoice(const unsigned int lastkey);
 	void selectorChoice(Audio &audio, bool &execution, unsigned int &gameState);
 	void animateText();
 	void play(sf::RenderWindow& window, Audio &audio, bool &execution, unsigned int &gameState);

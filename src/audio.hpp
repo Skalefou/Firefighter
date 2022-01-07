@@ -30,7 +30,6 @@ public:
 	void playSound(const unsigned int soundExecute);
 	void stopMusic();
 	void stopSound();
-	void deleteMusicTheme();
 	~Audio();
 private:
 	bool m_musicThemeUse;

@@ -16,8 +16,8 @@
 class Play
 {
 public:
-	Play(sf::Font& font, bool &fontWork);
-	void run(sf::RenderWindow& window, sf::Color &backgroundColor);
+	Play(sf::Font& font, bool &fontWork, Audio &audio);
+	void run(sf::RenderWindow& window, sf::Color &backgroundColor, Audio &audio, bool &execution);
 private:
 	Option option;
 	bool m_releaseEscape;

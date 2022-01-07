@@ -105,18 +105,10 @@ void Audio::stopSound()
 		m_sound[i]->stop();
 }
 
-//Allows you to delete the music file from the main menu from memory.
-void Audio::deleteMusicTheme()
-{
-	m_musicThemeUse = false;
-	m_music[0]->stop();
-	delete m_music[0];
-}
-
 //Free dynamically allocated variables in memory.
 Audio::~Audio()
 {
-	for (unsigned int i = !m_musicThemeUse; i < std::size(m_nameFileMusic); i++)
+	for (unsigned int i = 0; i < std::size(m_nameFileMusic); i++)
 		delete m_music[i];
 
 }
