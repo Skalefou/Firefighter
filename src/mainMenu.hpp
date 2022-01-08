@@ -2,7 +2,7 @@
 * mainMenu.hpp
 * Author : Skalefou
 * Creation date: 09/12/2021 (D/M/Y)
-* Date of last update : 31/12/2021 (D/M/Y)
+* Date of last update : 08/01/2022 (D/M/Y)
 *
 * This file describes the "mainMenu" class
 */
@@ -36,7 +36,6 @@ private:
 	std::vector <unsigned int>m_selectorAnimate;
 	bool m_colorAnimateText, m_releaseInput;
 	/*
-	* m_font : Contains the font for the text of the program.
 	* m_text : array containing the texts.
 	* m_selector : Contains the selection of the option in the menu.
 	* m_lastkey : Contains the last key on the keyboard that the user presses.

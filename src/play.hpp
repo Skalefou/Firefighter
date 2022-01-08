@@ -2,7 +2,7 @@
 * play.hpp
 * Author : Skalefou
 * Creation date: 01/01/2022 (D/M/Y)
-* Date of last update : 02/01/2022 (D/M/Y)
+* Date of last update : 07/01/2022 (D/M/Y)
 *
 * This file describes the "Play" class
 */
@@ -20,7 +20,12 @@ public:
 	void run(sf::RenderWindow& window, sf::Color &backgroundColor, Audio &audio, bool &execution);
 private:
 	Option option;
-	bool m_releaseEscape;
+	bool m_releaseEscape = true;
+
+	/*
+	* option : Object containing everything related to the options menu.
+	* m_releaseEscape : Check if the "Escape" key is not pressed.
+	*/
 };
 
 #endif

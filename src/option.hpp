@@ -2,7 +2,7 @@
 * option.hpp
 * Author : Skalefou
 * Creation date: 02/01/2022 (D/M/Y)
-* Date of last update : 02/01/2022 (D/M/Y)
+* Date of last update : 08/01/2022 (D/M/Y)
 *
 * This file describes the "Option" class
 */
@@ -50,6 +50,18 @@ private:
 	std::vector<int> m_selectorAnimateText;
 	sf::Clock m_clockAnimateText, m_coolDownInput;
 	bool m_colorAnimateText, m_releaseInput = false;
+
+	/*
+	* m_option : Checks if the option menu are open or not.
+	* m_canOpenOption : Check if we can open the option menu.
+	* m_frame : Create the red frame of options.
+	* m_selector : Indicates selection in the options menu.
+	* m_lastkey : Indicates the last key on the keyboard the user presses.
+	* m_selectorAnimateText : Table indicating all the texts that must be animated.
+	* m_clockAnimateText,m_coolDownInput : Clock resets after a certain time.
+	* m_colorAnimateText : Specifies the color that the animated text should have.
+	* m_releaseInput : Indicates whether the user releases a key on the keyboard.
+	*/
 };
 
 #endif

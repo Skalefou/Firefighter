@@ -2,7 +2,7 @@
 * audio.cpp
 * Author : Skalefou
 * Creation date: 13/11/2021 (D/M/Y)
-* Date of last update : 31/12/2021 (D/M/Y)
+* Date of last update : 07/01/2022 (D/M/Y)
 *
 * This file has all the methods of the "Audio" class.
 */
