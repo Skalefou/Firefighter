@@ -2,7 +2,7 @@
 * audio.hpp
 * Author : Skalefou
 * Creation date: 13/11/2021 (D/M/Y)
-* Date of last update : 07/01/2022 (D/M/Y)
+* Date of last update : 11/01/2022 (D/M/Y)
 *
 * The file describes the "Audio" class
 */
@@ -28,6 +28,8 @@ public:
 	float getVolumeSound() const;
 	float getVolumeMusic() const;
 	void playSound(const unsigned int soundExecute);
+	void pauseMusic();
+	void replayMusic();
 	void stopMusic();
 	void stopSound();
 	~Audio();
@@ -36,6 +38,7 @@ private:
 	float m_volumeMusic, m_volumeSound;
 	std::vector <sf::SoundBuffer> m_buffer;
 	std::vector <bool> accessMusic, accessSound;
+	std::vector <unsigned int> m_musicPause;
 	std::vector <std::shared_ptr<sf::Sound>> m_sound;
 	std::vector <sf::Music*> m_music;
 	std::vector <std::string> m_nameFileMusic, m_nameFileSound;
@@ -45,6 +48,7 @@ private:
 	* m_volumeMusic, m_volumeSound : Music/sound volume, it is fixed between 0.f and 100.f.
 	* m_buffer: vector containing the audio files of the sounds.
 	* accessMusic, accessSound : bool vector determining whether a music is available for playback or not. Useful when a file is deleted.
+	* m_musicPause : vector which indicates all the musics which are paused.
 	* m_sound: vector containing the audio files of the sounds.
 	* m_music: vector containing the audio files of the musics.
 	* m_nameFileMusic, m_nameFileSound : vector of string containing the path of the audio files.

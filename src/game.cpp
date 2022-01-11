@@ -2,7 +2,7 @@
 * game.cpp
 * Author : Skalefou
 * Creation date: 08/11/2021 (D/M/Y)
-* Date of last update : 07/01/2022 (D/M/Y)
+* Date of last update : 11/01/2022 (D/M/Y)
 * 
 * This file has all the methods of the "Game" class.
 */
@@ -45,21 +45,34 @@ void Game::program()
 	{
         sf::sleep(sleepTime());
         timeExecution.restart();
-        window.clear(backgroundColor);
         sf::Event event;
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::LostFocus)
+            {
+                audio.pauseMusic();
+                focus = false;
+            }
+            else if (event.type == sf::Event::GainedFocus)
+            {
+                audio.replayMusic();
+                focus = true;
+            }
         }
-        if (mainMenu != 0)
+        if (focus)
         {
-            mainMenu->play(window, audio, execution, gameState);
-            if (gameState != MENU)
-                deleteMainMenu();
+            window.clear(backgroundColor);
+            if (mainMenu != 0)
+            {
+                mainMenu->play(window, audio, execution, gameState);
+                if (gameState != MENU)
+                    deleteMainMenu();
+            }
+            if (gameState == PLAY)
+                play->run(window, backgroundColor, audio, execution);
+            window.display();
         }
-        if (gameState == PLAY)
-            play->run(window, backgroundColor, audio, execution);
-        window.display();
 	}
 }

@@ -2,7 +2,7 @@
 * mainMenu.cpp
 * Author : Skalefou
 * Creation date: 09/12/2021 (D/M/Y)
-* Date of last update : 07/01/2021 (D/M/Y)
+* Date of last update : 11/01/2021 (D/M/Y)
 *
 * This file has all the methods of the "mainMenu" class.
 */
@@ -156,7 +156,10 @@ void MainMenu::selectorChoice(Audio& audio, bool& execution, unsigned int& gameS
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter))
 	{
 		if (m_selector == 1)
+		{
+			audio.stopMusic();
 			gameState = 1;
+		}
 		else if (m_selector == 4)
 			execution = false;
 		audio.playSound(SELECTION_SOUND);

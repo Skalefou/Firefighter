@@ -2,7 +2,7 @@
 * audio.cpp
 * Author : Skalefou
 * Creation date: 13/11/2021 (D/M/Y)
-* Date of last update : 07/01/2022 (D/M/Y)
+* Date of last update : 11/01/2022 (D/M/Y)
 *
 * This file has all the methods of the "Audio" class.
 */
@@ -89,6 +89,27 @@ void Audio::playSound(const unsigned int soundExecute)
 	if (soundExecute < std::size(m_sound))
 		if (accessSound[soundExecute])
 			m_sound[soundExecute]->play();
+}
+
+//Pause all music.
+void Audio::pauseMusic()
+{
+	m_musicPause.clear();
+	for (unsigned int i = 0; i < std::size(m_music); i++)
+	{
+		if (m_music[i]->getPlayingOffset() > sf::seconds(0))
+		{
+			m_musicPause.push_back(i);
+			m_music[i]->pause();
+		}
+	}
+}
+
+//Play music that was paused.
+void Audio::replayMusic()
+{
+	for (unsigned int i = 0; i < std::size(m_musicPause); i++)
+		m_music[m_musicPause[i]]->play();
 }
 
 //stop all music.
