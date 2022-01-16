@@ -2,7 +2,7 @@
 * game.hpp
 * Author : Skalefou
 * Creation date: 08/11/2021 (D/M/Y)
-* Date of last update : 11/01/2022 (D/M/Y)
+* Date of last update : 16/01/2022 (D/M/Y)
 *
 * This file describes the "Game" class
 */
@@ -16,6 +16,7 @@
 #include "audio.hpp"
 #include "mainMenu.hpp"
 #include "play.hpp"
+#include "sprite.hpp"
 
 //Define the maximum time it takes for the program to freeze
 #define SLEEP_TIME_MAX 16'666
@@ -40,6 +41,7 @@ private:
 	std::unique_ptr<MainMenu> mainMenu;
 	std::unique_ptr<Play> play;
 	sf::Font font;
+	Sprite sprite;
 	/*
 	* window : Program window. Useful throughout the program.
 	* timeExecution : Duration of tick execution, particularly useful in the sleepTime() method.

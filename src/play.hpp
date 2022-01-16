@@ -2,7 +2,7 @@
 * play.hpp
 * Author : Skalefou
 * Creation date: 01/01/2022 (D/M/Y)
-* Date of last update : 07/01/2022 (D/M/Y)
+* Date of last update : 16/01/2022 (D/M/Y)
 *
 * This file describes the "Play" class
 */
@@ -12,6 +12,7 @@
 #pragma once
 
 #include "option.hpp"
+#include "sprite.hpp"
 
 class Play
 {
