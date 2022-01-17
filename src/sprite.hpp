@@ -12,7 +12,7 @@
 #pragma once
 
 #define NUMBER_TEXTURE 1
-enum {SUP, SLEFT, SDOWN, SRIGHT};
+enum {SRIGHT, SDOWN, SLEFT, SUP};
 enum {PLAYER};
 
 #include <array>

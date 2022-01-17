@@ -2,7 +2,7 @@
 * sprite.cpp
 * Author : Skalefou
 * Creation date: 16/01/2022 (D/M/Y)
-* Date of last update : 16/01/2022 (D/M/Y)
+* Date of last update : 17/01/2022 (D/M/Y)
 *
 * This file has all the methods of the "Sprite" class.
 */
@@ -16,11 +16,13 @@ Sprite::Sprite()
 		m_texture[i].loadFromFile(m_nameFileTexture[i]);
 		m_sprite[i].setTexture(m_texture[i]);
 	}
+	m_sprite[0].setPosition(sf::Vector2f(100.f, 100.f));
+	m_sprite[0].setOrigin(sf::Vector2f(16.f, 16.f));
 }
 
 void Sprite::rotatePlayer(const unsigned int dir)
 {
-	m_sprite[0].setRotation(dir * 90.f);
+	m_sprite[0].setRotation(90.f * dir);
 }
 
 void Sprite::draw(sf::RenderWindow &window, const unsigned int id)
