@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Firefighter.exe",
+            "type": "shell",
+            "command": "make"
+        },
+        {
+            "label": "Build for debug Firefighter.exe",
+            "type": "shell",
+            "command": "make debug"
+        },
+        {
+            "label": "clean Firefighter.exe",
+            "type": "shell",
+            "command": "make clean",
+            "problemMatcher": []
+        }
+    ]
+}

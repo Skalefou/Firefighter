@@ -1,0 +1,45 @@
+{
+
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Build and debug Firefighter",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Firefighter.exe",
+            "preLaunchTask": "Build for debug Firefighter.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal",
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Activer l'impression en mode Pretty pour gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description":  "Définir la version désassemblage sur Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        
+        {
+            "name": "Build and run Firefighter.exe",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "preLaunchTask": "Build Firefighter.exe",
+            "program": "${workspaceFolder}/Firefighter.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal",
+        }
+    ]
+}
