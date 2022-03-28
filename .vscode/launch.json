@@ -3,6 +3,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "(Release) build Firefighter",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Firefighter",
+            "preLaunchTask": "Release Firefighter",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal"
+        },
+        {
             "name": "Build and debug Firefighter",
             "type": "cppdbg",
             "request": "launch",

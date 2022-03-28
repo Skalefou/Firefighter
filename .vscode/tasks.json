@@ -2,19 +2,32 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Release Firefighter",
+            "type": "shell",
+            "windows":{
+                "command": "make compile-window",
+            },
+        },
+        {
             "label": "Build Firefighter",
             "type": "shell",
-            "command": "make"
+            "windows":{
+                "command": "make compile-window",
+            },
         },
         {
             "label": "Build for debug Firefighter",
             "type": "shell",
-            "command": "make debug"
+            "windows":{
+            "command": "make debug-window",
+            },
         },
         {
             "label": "clean Firefighter",
             "type": "shell",
-            "command": "make clean",
+            "windows":{
+            "command": "make clean-window",
+            },
             "problemMatcher": []
         }
     ]
