@@ -7,7 +7,12 @@ description: file managing the functions of the Firefighter class which includes
 
 Firefighter::Firefighter()
 {
-
+    //Load Menu
+    font.loadFromFile("data/Pixellari.ttf");
+    
+    std::vector<std::string> textString {"Firefighter", "Play", "Sound : 10", "Music : 10", "Quit"};
+    std::vector<int> characterSize {26, 16, 16, 16, 16}; 
+    menu.init(font, textString, characterSize);
 }
 
 sf::Time Firefighter::timeSleep()
