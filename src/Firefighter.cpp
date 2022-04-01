@@ -9,6 +9,7 @@ Firefighter::Firefighter()
 {
     //Load Menu
     font.loadFromFile("data/Pixellari.ttf");
+
     
     std::vector<std::string> textString {"Firefighter", "Play", "Sound : 10", "Music : 10", "Quit"};
     std::vector<int> characterSize {26, 16, 16, 16, 16}; 
@@ -35,6 +36,8 @@ void Firefighter::run()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+
+        if(stateGame == MENU)
 
         window.clear(backgroundColor);
         window.display();

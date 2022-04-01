@@ -14,7 +14,8 @@ description: Header managing the "Menu" class which directly or indirectly manag
 class Menu
 {
 public:
-    void init(sf::Font &font, std::vector<std::string> textString, std::vector<int> characterSize);
+    void init(sf::Font &font, const std::vector<std::string> textString, const std::vector<int> characterSize);
+    
 private:
     std::vector<sf::Text> m_text;
 };

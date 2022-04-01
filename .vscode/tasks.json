@@ -5,14 +5,7 @@
             "label": "Release Firefighter",
             "type": "shell",
             "windows":{
-                "command": "make compile-window",
-            },
-        },
-        {
-            "label": "Build Firefighter",
-            "type": "shell",
-            "windows":{
-                "command": "make compile-window",
+                "command": "make release-window",
             },
         },
         {

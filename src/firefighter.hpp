@@ -12,6 +12,8 @@ description: Header managing the "Firefighter" class which includes the whole pr
 
 #include "menu.hpp"
 
+enum {MENU, OPTION, PLAY, GAME_OVER};
+
 class Firefighter
 {
 public:
@@ -24,6 +26,7 @@ private:
     sf::Clock timeExecution;
     sf::Font font;
     Menu menu;
+    int stateGame = MENU;
 };
 
 #endif

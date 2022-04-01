@@ -10,7 +10,7 @@
             "preLaunchTask": "Release Firefighter",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${fileDirname}",
+            "cwd": "${workspaceFolder}",
             "environment": [],
             "console": "externalTerminal"
         },
@@ -22,7 +22,7 @@
             "preLaunchTask": "Build for debug Firefighter",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${fileDirname}",
+            "cwd": "${workspaceFolder}",
             "environment": [],
             "console": "externalTerminal",
             "MIMode": "gdb",
@@ -45,18 +45,5 @@
                 }
             ]
         },
- 
-        {
-            "name": "Build and run Firefighter",
-            "type": "cppdbg",
-            "request": "launch",
-            "preLaunchTask": "Build Firefighter",
-            "program": "${workspaceFolder}/Firefighter",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "console": "externalTerminal",
-        }
     ]
 }
