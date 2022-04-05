@@ -7,15 +7,15 @@ You must install make, here is a [link](https://stackoverflow.com/questions/3212
 
 __Visual studio code__
 
-1- We recommend installing vscode C/C++ extensions
-2- Download the repository or clone it via git.
-3- Open the folder with visual studio code
-4- To compile and debug the project: F5
+1. We recommend installing vscode C/C++ extensions
+2. Download the repository or clone it via git.
+3. Open the folder with visual studio code
+4. To compile and debug the project: F5
 
 __Make__
 
-1- Download the repository or clone it via git.
-2- Open the folder in a command prompt and run this command:
+1. Download the repository or clone it via git.
+2. Open the folder in a command prompt and run this command:
 ```
 make debug-window
 ```
@@ -37,15 +37,15 @@ sudo apt-get install libsfml-dev
 ```
 __Visual studio code__
 
-1- We recommend installing vscode C/C++ extensions
-2- Download the repository or clone it via git.
-3- Open the folder with visual studio code
-4- To compile and debug the project: F5
+1. We recommend installing vscode C/C++ extensions
+2. Download the repository or clone it via git.
+3. Open the folder with visual studio code
+4. To compile and debug the project: F5
 
 __Make__
 
-1- Download the repository or clone it via git.
-2- Open the folder in a command prompt and run this command:
+1. Download the repository or clone it via git.
+2. Open the folder in a command prompt and run this command:
 ```
 make debug-linux
 ```
