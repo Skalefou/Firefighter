@@ -16,20 +16,25 @@ __Make__
 
 1- Download the repository or clone it via git.
 2- Open the folder in a command prompt and run this command:
->make debug-window
+```
+make debug-window
+```
 
 ## Compiler sur linux
 
 The project uses the g++ 11.2.0 compiler. To download and use this compiler for the project, please run these commands on Debian/Ubuntu
->sudo apt-get install g++-11
->alias g++='g++-11'
-
+```
+sudo apt-get install g++-11
+alias g++='g++-11'
+```
 You need to install make. To install make on Ubuntu/Debian, here is the command:
->sudo apt-get install make
-
+```
+sudo apt-get install make
+```
 You need to install SFML. To install SFML on Ubuntu/Debian, here is the command:
->sudo apt-get install libsfml-dev
-
+```
+sudo apt-get install libsfml-dev
+```
 __Visual studio code__
 
 1- We recommend installing vscode C/C++ extensions
@@ -41,4 +46,6 @@ __Make__
 
 1- Download the repository or clone it via git.
 2- Open the folder in a command prompt and run this command:
->make debug-linux
+```
+make debug-linux
+```
