@@ -29,6 +29,7 @@ void Firefighter::run()
     while(window.isOpen())
     {
         sf::sleep(timeSleep());
+        window.clear(backgroundColor);
         timeExecution.restart();
         sf::Event event;
         while (window.pollEvent(event))
@@ -39,7 +40,8 @@ void Firefighter::run()
 
         if(stateGame == MENU)
 
-        window.clear(backgroundColor);
+        menu.draw(window);
+        
         window.display();
     }
 }

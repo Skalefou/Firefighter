@@ -15,7 +15,7 @@ class Menu
 {
 public:
     void init(sf::Font &font, const std::vector<std::string> textString, const std::vector<int> characterSize);
-    
+    void draw(sf::RenderWindow &window);
 private:
     std::vector<sf::Text> m_text;
 };
