@@ -11,7 +11,7 @@ Firefighter::Firefighter()
     font.loadFromFile("data/Pixellari.ttf");
 
     std::vector<sf::Vector2f> t {sf::Vector2f(14.f, 14.f), sf::Vector2f(18.f, 18.f), sf::Vector2f(18.f, 18.f), sf::Vector2f(18.f, 18.f), sf::Vector2f(18.f, 18.f), sf::Vector2f(18.f, 18.f)};
-    menu.init(font, {"Firefighter", "Play", "Sound : 10", "Music : 10", "Quit"}, {36, 26, 26, 26, 26}, {sf::Vector2f(128.f, 24.f), sf::Vector2f(18.f, 18.f), sf::Vector2f(18.f, 18.f), sf::Vector2f(18.f, 18.f), sf::Vector2f(18.f, 18.f), sf::Vector2f(18.f, 18.f)});
+    menu.init(font, {"Firefighter", "Play", "Sound : 10", "Music : 10", "Quit"}, {56, 36, 36, 36, 36}, {sf::Vector2f(10.f, 24.f), sf::Vector2f(10.f, 256.f), sf::Vector2f(10.f, 302.f), sf::Vector2f(10.f, 344.f), sf::Vector2f(10.f, 386.f), sf::Vector2f(10.f, 428.f)});
 }
 
 sf::Time Firefighter::timeSleep()

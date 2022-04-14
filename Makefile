@@ -1,9 +1,10 @@
-OS := $(shell uname)
- 
+WIN_FLAG = -DSFML_STATIC -I include -L lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lsfml-audio-s -lopengl32 -lwinmm -lgdi32 -lfreetype
+STATIC_WIN_FLAG =  -static-libgcc -static-libstdc++ -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic
+
 debug-window:
-	g++ -g -std=c++17 src/*.cpp -o Firefighter -DSFML_STATIC -I include -L lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lsfml-audio-s -lopengl32 -lwinmm -lgdi32 -lfreetype
+	g++ -g -std=c++17 src/*.cpp -o Firefighter $(WIN_FLAG)
 release-window:
-	g++ -s -std=c++17 src/*.cpp -o Firefighter -static-libgcc -static-libstdc++ -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic -DSFML_STATIC -I include -L lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lsfml-audio-s -lopengl32 -lwinmm -lgdi32 -lfreetype
+	g++ -s -std=c++17 src/*.cpp -o Firefighter $(STATIC_WIN_FLAG) $(WIN_FLAG)
 clean-window:
 	del *.exe
 	del *.o
