@@ -42,6 +42,7 @@ void Configuration::selectionCursor(const bool dir)
         m_cursor++;
     else
         m_cursor--;
+    m_text[m_cursor].setColor(sf::Color::Yellow);
     m_keyWait.restart();
 }
 

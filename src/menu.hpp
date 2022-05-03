@@ -11,7 +11,8 @@ description: Header managing the "Menu" class which includes the whole program
 class Menu : public Configuration
 {
 public:
-    void run(sf::RenderWindow &window);
+    void enterChoice(sf::RenderWindow &window, int &stateGame);
+    void run(sf::RenderWindow &window, int &stateGame);
 };
 
 #endif

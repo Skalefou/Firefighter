@@ -19,7 +19,7 @@ public:
     void selectionCursor(const bool dir);
     void moveCursor(); 
     void draw(sf::RenderWindow &window);
-private:
+protected:
     std::vector<sf::Text> m_text;
     int m_cursor, m_cursorBegin, m_cursorEnd;
     bool m_colorAnimation = true;

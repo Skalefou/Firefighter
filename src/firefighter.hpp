@@ -12,7 +12,7 @@ description: Header managing the "Firefighter" class which includes the whole pr
 
 #include "menu.hpp"
 
-enum {MENU, OPTION, PLAY, GAME_OVER};
+enum {MENU, OPTION, PLAY, GAME_OVER, QUIT};
 
 class Firefighter
 {

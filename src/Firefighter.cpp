@@ -37,7 +37,7 @@ void Firefighter::run()
         }
 
         if(stateGame == MENU)
-            menu.run(window);
+            menu.run(window, stateGame);
         
         window.display();
     }
