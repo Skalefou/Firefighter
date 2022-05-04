@@ -22,7 +22,7 @@ public:
 protected:
     std::vector<sf::Text> m_text;
     int m_cursor, m_cursorBegin, m_cursorEnd;
-    bool m_colorAnimation = true;
+    bool m_colorAnimation = true, m_releaseInput = true;
     sf::Clock m_keyWait, m_colorAnimationWait;
 };
 

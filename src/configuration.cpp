@@ -37,9 +37,14 @@ void Configuration::init(sf::Font &font, const std::vector<std::string> textStri
 
 void Configuration::selectionCursor(const bool dir)
 {
+    m_releaseInput = false;
     m_text[m_cursor].setColor(sf::Color::White);
-    if(dir)
+    if(dir && m_cursor < m_cursorEnd)
         m_cursor++;
+    else if (dir && m_cursor == m_cursorEnd)
+        m_cursor = m_cursorBegin;
+    else if (!dir && m_cursor == m_cursorBegin)
+        m_cursor = m_cursorEnd;
     else
         m_cursor--;
     m_text[m_cursor].setColor(sf::Color::Yellow);
@@ -48,10 +53,13 @@ void Configuration::selectionCursor(const bool dir)
 
 void Configuration::moveCursor()
 {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && m_cursor < m_cursorEnd && m_keyWait.getElapsedTime() > sf::milliseconds(375))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && (m_keyWait.getElapsedTime() > sf::milliseconds(375) || m_releaseInput))
         selectionCursor(true);
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && m_cursor > m_cursorBegin && m_keyWait.getElapsedTime() > sf::milliseconds(375))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && (m_keyWait.getElapsedTime() > sf::milliseconds(375) || m_releaseInput))
         selectionCursor(false);
+    
+    if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        m_releaseInput = true;
 } 
 
 void Configuration::draw(sf::RenderWindow &window)

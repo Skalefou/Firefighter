@@ -11,6 +11,7 @@ description: Header managing the "Firefighter" class which includes the whole pr
 #include <string>
 
 #include "menu.hpp"
+#include "sound.hpp"
 
 enum {MENU, OPTION, PLAY, GAME_OVER, QUIT};
 
@@ -26,6 +27,7 @@ private:
     sf::Clock timeExecution;
     sf::Font font;
     Menu menu;
+    Sound sound;
     int stateGame = MENU;
 };
 
