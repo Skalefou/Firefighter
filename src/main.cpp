@@ -13,4 +13,4 @@ int main()
     return 0;
 }
 
-//TODO: Rajouter la classe son
+//TODO: Configurer les musiques dans la classe sound. 

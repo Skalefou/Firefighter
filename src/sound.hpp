@@ -12,8 +12,10 @@ description: Header managing the "Sound" class which directly or indirectly mana
 
 class Sound
 {
+public:
+    Sound();
 private:
-    std::vector<std::unique_ptr<sf::Music>> m_music;
+    std::vector <sf::Music*> m_music;
 };
 
 #endif
