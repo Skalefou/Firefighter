@@ -8,12 +8,14 @@ description: Header managing the "Menu" class which includes the whole program
 
 #include "configuration.hpp"
 #include "sound.hpp"
+#include "sprite.hpp"
 
 class Menu : public Configuration
 {
 public:
     void enterChoice(sf::RenderWindow &window, int &stateGame, Sound &sound);
-    void run(sf::RenderWindow &window, int &stateGame, Sound &sound);
+    void drawSprite(sf::RenderWindow &window, Sprite &sprite);
+    void run(sf::RenderWindow &window, int &stateGame, Sound &sound, Sprite &sprite);
 private:
     sf::Clock m_choiceWait;
     bool m_releaseInput = true;

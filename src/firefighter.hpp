@@ -13,6 +13,7 @@ description: Header managing the "Firefighter" class which includes the whole pr
 
 #include "menu.hpp"
 #include "sound.hpp"
+#include "sprite.hpp"
 
 enum {MENU, OPTION, PLAY, GAME_OVER, QUIT};
 
@@ -29,6 +30,7 @@ private:
     sf::Font font;
     Menu menu;
     Sound sound;
+    Sprite sprite;
     int stateGame = MENU;
 };
 

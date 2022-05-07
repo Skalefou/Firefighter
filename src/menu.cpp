@@ -43,10 +43,16 @@ void Menu::enterChoice(sf::RenderWindow &window, int &stateGame, Sound &sound)
         m_releaseInput = true;
 }
 
- void Menu::run(sf::RenderWindow &window, int &stateGame, Sound &sound)
+void Menu::drawSprite(sf::RenderWindow &window, Sprite &sprite)
+{
+    sprite.draw(window, FIREFIGHTER_MENU_SPRITE);
+}
+
+ void Menu::run(sf::RenderWindow &window, int &stateGame, Sound &sound, Sprite &sprite)
  {
      moveCursor(sound);
      enterChoice(window, stateGame, sound);
      colorAnimation();
      draw(window);
+     drawSprite(window, sprite);
  }
