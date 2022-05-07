@@ -8,6 +8,7 @@ description: Header managing the "Firefighter" class which includes the whole pr
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <memory>
 #include <string>
 
 #include "menu.hpp"

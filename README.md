@@ -1,6 +1,6 @@
 # Firefighter
 An action/puzzle game where we control a firefighter in a labyrinth of flame
-## Compiler sur window
+## Compile on Window
 
 First of all know that the compiler used is g++ (11.2.0) + MinGW-w64 9.0.0 (MSVCRT). You can download this compiler with [winlibs.com](https://winlibs.com/).
 You must install make, here is a [link](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows) presenting different method to install make.
@@ -20,7 +20,7 @@ __Make__
 make debug-window
 ```
 
-## Compiler sur linux
+## Compile on Linux
 
 The project uses the g++ 11.2.0 compiler. To download and use this compiler for the project, please run these commands on Debian/Ubuntu
 ```

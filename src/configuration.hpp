@@ -10,14 +10,15 @@ description: Header managing the "Configuration" class which directly or indirec
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
+#include "sound.hpp"
 
 class Configuration
 {
 public:
     void init(sf::Font &font, const std::vector<std::string> textString, const std::vector<int> characterSize, const std::vector<sf::Vector2f> position, int cursorBegin, int cursorEnd);
     void colorAnimation();
-    void selectionCursor(const bool dir);
-    void moveCursor(); 
+    void selectionCursor(const bool dir, Sound &sound);
+    void moveCursor(Sound &sound); 
     void draw(sf::RenderWindow &window);
 protected:
     std::vector<sf::Text> m_text;

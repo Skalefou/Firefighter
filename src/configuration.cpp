@@ -35,8 +35,9 @@ void Configuration::init(sf::Font &font, const std::vector<std::string> textStri
      }
  }
 
-void Configuration::selectionCursor(const bool dir)
+void Configuration::selectionCursor(const bool dir, Sound &sound)
 {
+    sound.playSound(SELECTION_SOUND);
     m_releaseInput = false;
     m_text[m_cursor].setColor(sf::Color::White);
     if(dir && m_cursor < m_cursorEnd)
@@ -51,12 +52,12 @@ void Configuration::selectionCursor(const bool dir)
     m_keyWait.restart();
 }
 
-void Configuration::moveCursor()
+void Configuration::moveCursor(Sound &sound)
 {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && (m_keyWait.getElapsedTime() > sf::milliseconds(375) || m_releaseInput))
-        selectionCursor(true);
+        selectionCursor(true, sound);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && (m_keyWait.getElapsedTime() > sf::milliseconds(375) || m_releaseInput))
-        selectionCursor(false);
+        selectionCursor(false, sound);
     
     if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         m_releaseInput = true;
