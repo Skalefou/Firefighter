@@ -35,7 +35,7 @@ void Firefighter::run()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
+        sprite.draw(window, 0);
         if(stateGame == MENU)
             menu.run(window, stateGame, sound, sprite);
         

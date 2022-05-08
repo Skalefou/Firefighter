@@ -29,6 +29,12 @@ Sound::Sound()
     m_music[MAIN_THEME_MUSIC]->play();
 }
 
+Sound::~Sound()
+{
+    for(int i = 0; i < std::size(m_music); i++)
+        delete m_music[i];
+}
+
 std::string Sound::setVolumeMusic(const float v)
 {
     if(v >= 0.f && v <= 100.f)

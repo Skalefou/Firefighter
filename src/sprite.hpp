@@ -13,15 +13,20 @@ description: Header managing the "Sprite" class which manages sprite.
 
 enum {FIREFIGHTER_MENU_SPRITE};
 
+struct Texture 
+{
+    sf::Sprite sprite;
+    sf::Texture texture;
+};
+
 class Sprite
 {
 public:
     Sprite();
     void draw(sf::RenderWindow &window, const int id);
 private:
-    std::string m_nameFileTexture {"firefighter_menu.png"};
-    std::vector <sf::Texture> m_texture;
-    std::vector <std::unique_ptr<sf::Sprite>> m_sprite;
+    std::vector <std::string> m_nameFileTexture {"firefighter_menu.png"};
+    std::vector <Texture> m_sprite;
 };
 
 #endif

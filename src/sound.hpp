@@ -18,6 +18,7 @@ class Sound
 {
 public:
     Sound();
+    ~Sound();
     std::string setVolumeMusic(const float v);
     std::string setVolumeSound(const float v);
     void stopMusic();
