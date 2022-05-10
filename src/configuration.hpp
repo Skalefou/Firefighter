@@ -4,7 +4,7 @@ author: Skalefou
 description: Header managing the "Configuration" class which directly or indirectly manages the menu and option.
 */
 
-#ifndef CONFIGURATON_HPP
+#ifndef CONFIGURATION_HPP
 #define CONFIGURATION_HPP
 
 #include <SFML/Graphics.hpp>

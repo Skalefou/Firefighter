@@ -1,7 +1,7 @@
 /*
 file: menu.hpp
 author: Skalefou
-description: Header managing the "Menu" class which includes the whole program
+description: Header managing the "Menu" class which manages the menu.
 */
 #ifndef MENU_HPP
 #define MENU_HPP

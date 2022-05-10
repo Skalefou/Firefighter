@@ -1,7 +1,7 @@
 /*
 file: menu.cpp
 author: Skalefou
-description: File managing the functions of the Menu class which includes the whole program
+description: File managing the functions of the Menu class which manages the menu.
 */
 
 #include "firefighter.hpp"

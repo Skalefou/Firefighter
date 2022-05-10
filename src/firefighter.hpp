@@ -8,12 +8,12 @@ description: Header managing the "Firefighter" class which includes the whole pr
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include <memory>
 #include <string>
 
 #include "menu.hpp"
 #include "sound.hpp"
 #include "sprite.hpp"
+#include "game.hpp"
 
 enum {MENU, OPTION, PLAY, GAME_OVER, QUIT};
 
@@ -31,6 +31,7 @@ private:
     Menu menu;
     Sound sound;
     Sprite sprite;
+    Game game;
     int stateGame = MENU;
 };
 
