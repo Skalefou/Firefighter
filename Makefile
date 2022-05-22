@@ -9,9 +9,11 @@ clean-window:
 	del *.exe
 	del *.o
 release-linux:
-	g++ -std=c++17 src/*.cpp -o Firefighter -I include -L lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+	alias g++="g++-11"
+	g++ -std=c++17 src/*.cpp -o Firefighter -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 debug-linux:
-	g++ -std=c++17 -g src/*.cpp -o Firefighter -I include -L lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+	alias g++="g++-11"
+	g++ -std=c++17 -g src/*.cpp -o Firefighter -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 clean-linux:
 	rm -f *.o
 	rm -f *.out 

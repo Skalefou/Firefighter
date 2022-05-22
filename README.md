@@ -24,8 +24,11 @@ make debug-window
 
 The project uses the g++ 11.2.0 compiler. To download and use this compiler for the project, please run these commands on Debian/Ubuntu
 ```
-sudo apt-get install g++-11
-alias g++='g++-11'
+
+sudo apt install build-essential manpages-dev software-properties-common
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update && sudo apt install gcc-11 g++-11
+
 ```
 You need to install make. To install make on Ubuntu/Debian, here is the command:
 ```
