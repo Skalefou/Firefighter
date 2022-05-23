@@ -11,7 +11,7 @@ description: Header managing the Option class that handles in-game configuration
 
 class Option : public Configuration
 {
-    
+   
 };
 
 #endif
