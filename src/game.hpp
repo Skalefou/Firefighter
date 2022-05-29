@@ -19,7 +19,7 @@ public:
     void draw(sf::RenderWindow &window, int &stategame);
 private:
     Option m_option;
-    bool m_activeKey = true;
+    bool m_activeKey = true, m_optionOn = false;
 };
 
 #endif
