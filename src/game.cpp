@@ -8,7 +8,7 @@ description: file managing the functions of the Game class that manipulates the 
 
 void Game::init(sf::Font &font)
 {
-    m_option.init(font, {"Pause", "Continue", "Sound : 10", "Music : 10", "Quit"}, {46, 36, 36, 36, 36}, {sf::Vector2f(186.f, 186.f), sf::Vector2f(176.f, 256.f), sf::Vector2f(176.f, 302.f), sf::Vector2f(176.f, 344.f), sf::Vector2f(176.f, 386.f), sf::Vector2f(176.f, 428.f)}, 1, 4);
+    m_option.init(font, {"Pause", "Continue", "Sound : 10", "Music : 10", "Quit"}, {46, 36, 36, 36, 36}, {sf::Vector2f(191.f, 118.f), sf::Vector2f(181.f, 173.f), sf::Vector2f(181.f, 215.f), sf::Vector2f(181.f, 257.f), sf::Vector2f(181.f, 299.f), sf::Vector2f(181.f, 341.f)}, 1, 4);
 }
 
 void Game::keyEnter(int &stategame)
