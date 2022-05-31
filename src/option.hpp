@@ -11,7 +11,11 @@ description: Header managing the Option class that handles in-game configuration
 
 class Option : public Configuration
 {
-   
+public:
+    Option();
+    void draw(sf::RenderWindow &window);
+private:
+    sf::RectangleShape m_outlines;
 };
 
 #endif
