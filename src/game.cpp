@@ -18,17 +18,22 @@ void Game::keyEnter(int &stategame)
         if(!m_optionOn)
             m_optionOn = true;
         else if (m_optionOn)
+        {
             m_optionOn = false;
+            m_option.closeOption();
+        }
         m_activeKey = false;
     }
     else if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && m_activeKey == false)
         m_activeKey = true;
 }
 
-void Game::run(sf::RenderWindow &window, int &stategame)
+void Game::run(sf::RenderWindow &window, int &stategame, Sound &sound)
 {
     keyEnter(stategame);
     draw(window, stategame);
+    if(m_optionOn)
+        m_option.run(window, sound, m_optionOn);
 }
 
 void Game::draw(sf::RenderWindow &window, int &stategame)

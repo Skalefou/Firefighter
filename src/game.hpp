@@ -15,7 +15,7 @@ class Game
 public:
     void init(sf::Font &font);
     void keyEnter(int &stategame);
-    void run(sf::RenderWindow &window, int &stategame);
+    void run(sf::RenderWindow &window, int &stategame, Sound &sound);
     void draw(sf::RenderWindow &window, int &stategame);
 private:
     Option m_option;
