@@ -19,7 +19,7 @@ void Option::enterChoice(sf::RenderWindow &window, Sound &sound, bool &m_optionO
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m_cursor == m_cursorBegin)
     {
         m_optionOn = false;
-        closeOption();
+        closeOption(sound);
         sound.playSound(SELECTION_SOUND);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && (m_choiceWait.getElapsedTime() >= sf::milliseconds(375) || m_releaseInput))
@@ -49,13 +49,14 @@ void Option::enterChoice(sf::RenderWindow &window, Sound &sound, bool &m_optionO
         m_releaseInput = true;
 }
 
-void Option::closeOption()
+void Option::closeOption(Sound &sound)
 {
     m_cursor = m_cursorBegin;
     m_colorAnimation = false;
     m_text[1].setColor(sf::Color::Yellow);
     for(int i = 2; i < std::size(m_text); i++)
         m_text[i].setColor(sf::Color::White);
+    sound.playMusic(GAME_MUSIC);
 }
 
 void Option::draw(sf::RenderWindow &window)

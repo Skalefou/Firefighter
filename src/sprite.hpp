@@ -11,7 +11,7 @@ description: Header managing the "Sprite" class which manages sprite.
 #include <memory>
 #include <string>
 
-enum {FIREFIGHTER_MENU_SPRITE};
+enum {FIREFIGHTER_MENU_SPRITE, FIRE1_SPRITE, FIRE2_SPRITE};
 
 struct Texture 
 {
@@ -25,7 +25,7 @@ public:
     Sprite();
     void draw(sf::RenderWindow &window, const int id);
 private:
-    std::vector <std::string> m_nameFileTexture {"firefighter_menu.png"};
+    std::vector <std::string> m_nameFileTexture {"firefighter_menu.png", "fire1.png", "fire2.png"};
     std::vector <Texture> m_sprite;
 };
 

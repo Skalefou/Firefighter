@@ -14,6 +14,7 @@ void Menu::enterChoice(sf::RenderWindow &window, int &stateGame, Sound &sound)
         stateGame = PLAY;
         sound.stopMusic();
         sound.playSound(SELECTION_SOUND);
+        sound.playMusic(GAME_MUSIC);
         sound.FreeMenuMusic();
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && (m_choiceWait.getElapsedTime() >= sf::milliseconds(375) || m_releaseInput))

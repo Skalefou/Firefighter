@@ -73,6 +73,11 @@ void Sound::playSound(const int id)
     m_sound[id]->play();
 }
 
+void Sound::pauseMusic(const int id)
+{
+    m_music[id]->pause();
+}
+
 float Sound::getVolumeMusic() const
 {
     return m_volumeMusic;

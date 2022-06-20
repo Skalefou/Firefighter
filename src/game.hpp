@@ -9,13 +9,14 @@ description: Header managing the "Game" class that manipulates the whole game.
 
 #include <SFML/Graphics.hpp>
 #include "option.hpp"
+#include "sprite.hpp"
 
 class Game 
 {
 public:
     void init(sf::Font &font);
-    void keyEnter(int &stategame);
-    void run(sf::RenderWindow &window, int &stategame, Sound &sound);
+    void keyEnter(int &stategame, Sound &sound);
+    void run(sf::RenderWindow &window, int &stategame, Sound &sound, Sprite &sprite);
     void draw(sf::RenderWindow &window, int &stategame);
 private:
     Option m_option;

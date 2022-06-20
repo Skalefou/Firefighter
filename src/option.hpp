@@ -8,6 +8,7 @@ description: Header managing the Option class that handles in-game configuration
 #define OPTION_HPP
 
 #include "configuration.hpp"
+#include "sound.hpp"
 
 class Option : public Configuration
 {
@@ -16,7 +17,7 @@ public:
     void draw(sf::RenderWindow &window);
     void run(sf::RenderWindow &window, Sound &sound, bool &m_optionOn);
     void enterChoice(sf::RenderWindow &window, Sound &sound, bool &m_optionOn);
-    void closeOption();
+    void closeOption(Sound &sound);
 private:
     sf::Clock m_choiceWait;
     sf::RectangleShape m_outlines;
