@@ -38,7 +38,6 @@ void Game::run(sf::RenderWindow &window, int &stategame, Sound &sound, Sprite &s
     draw(window, stategame);
     if(m_optionOn)
         m_option.run(window, sound, m_optionOn);
-    sprite.draw(window, FIRE1_SPRITE);
 }
 
 void Game::draw(sf::RenderWindow &window, int &stategame)

@@ -10,6 +10,7 @@ description: Header managing the "Game" class that manipulates the whole game.
 #include <SFML/Graphics.hpp>
 #include "option.hpp"
 #include "sprite.hpp"
+#include "map.hpp"
 
 class Game 
 {
@@ -20,6 +21,7 @@ public:
     void draw(sf::RenderWindow &window, int &stategame);
 private:
     Option m_option;
+    Map m_map;
     bool m_activeKey = true, m_optionOn = false;
 };
 
