@@ -15,10 +15,10 @@ description: Header managing the "Game" class that manipulates the whole game.
 class Game 
 {
 public:
-    void init(sf::Font &font);
-    void keyEnter(int &stategame, Sound &sound);
+    void init(sf::Font &font, Sprite &sprite);
+    void keyEnter(int &stategame, Sound &sound, Sprite &sprite);
     void run(sf::RenderWindow &window, int &stategame, Sound &sound, Sprite &sprite);
-    void draw(sf::RenderWindow &window, int &stategame);
+    void draw(sf::RenderWindow &window, int &stategame, Sprite &sprite);
 private:
     Option m_option;
     Map m_map;

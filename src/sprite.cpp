@@ -25,3 +25,8 @@ void Sprite::draw(sf::RenderWindow &window, const int id)
 {
     window.draw(m_sprite[id].sprite);
 }
+
+void Sprite::changePosition(const int id, sf::Vector2f position)
+{
+    m_sprite[id].sprite.setPosition(position);
+}
