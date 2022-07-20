@@ -33,8 +33,12 @@ void Game::keyEnter(int &stategame, Sound &sound, Sprite &sprite)
         m_activeKey = true;
     if (!m_optionOn)
     {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-            m_map.MovePositionPlayer(sprite, RIGHT_PLAYER_MOVE);
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && (m_keyWait.getElapsedTime() >= sf::milliseconds(375) || m_releaseInput))
+        {
+            m_map.MovePositionPlayer(sprite, m_map.moveKey());
+            m_releaseInput = false;
+            m_keyWait.restart();
+        }
     }
 }
 

@@ -22,7 +22,8 @@ public:
 private:
     Option m_option;
     Map m_map;
-    bool m_activeKey = true, m_optionOn = false;
+    bool m_activeKey = true, m_optionOn = false, m_releaseInput = true;
+    sf::Clock m_keyWait;
 };
 
 #endif
