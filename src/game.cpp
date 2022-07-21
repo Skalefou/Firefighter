@@ -57,5 +57,6 @@ void Game::draw(sf::RenderWindow &window, int &stategame, Sprite &sprite)
     else
     {
         sprite.draw(window, PLAYER_SPRITE);
+        m_map.display(window, sprite);
     }
 }

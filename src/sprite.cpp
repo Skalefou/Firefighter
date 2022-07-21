@@ -30,3 +30,8 @@ void Sprite::changePosition(const int id, sf::Vector2f position)
 {
     m_sprite[id].sprite.setPosition(position);
 }
+
+void Sprite::setRotate(const int id, const float rotate)
+{
+    m_sprite[id].sprite.setRotation(rotate);
+}

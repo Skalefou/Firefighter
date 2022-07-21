@@ -25,6 +25,7 @@ public:
     Sprite();
     void draw(sf::RenderWindow &window, const int id);
     void changePosition(const int id, sf::Vector2f position);
+    void setRotate(const int id, const float rotate);
 private:
     std::vector <std::string> m_nameFileTexture {"firefighter_menu.png", "fire1.png", "fire2.png", "player.png"};
     std::vector <Texture> m_sprite;
